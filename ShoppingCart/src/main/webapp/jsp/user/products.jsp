@@ -5,7 +5,10 @@
 <html>
 <head>
 <title>Mercato</title>
-<link href="ui/css/bootstrap.css" rel="stylesheet" type="text/css"
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
+<link href="${contextPath}/resources/css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script src="ui/js/jquery.min.js"></script>
 <link href="ui/css/style.css" rel="stylesheet" type="text/css"

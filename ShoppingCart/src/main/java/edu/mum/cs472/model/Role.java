@@ -1,28 +1,46 @@
 package edu.mum.cs472.model;
 
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "role")
 public class Role {
-     private int roleId;
-     private String Role;
-     
-     
-	public Role(int roleId, String role) {
-		super();
-		this.roleId = roleId;
-		Role = role;
+
+	private Long id;
+	private String name;
+	private Set<User> users;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
 	}
-	public int getRoleId() {
-		return roleId;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
-	
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+
+	public String getName() {
+		return name;
 	}
-	public String getRole() {
-		return Role;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setRole(String role) {
-		Role = role;
+
+	@ManyToMany(mappedBy = "roles")
+	public Set<User> getUsers() {
+		return users;
 	}
-     
-     
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 }

@@ -1,33 +1,37 @@
 package edu.mum.cs472.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+
+@Entity
+@Table(name = "user")
 public class User {
-	private int userId;
-	private List<Role> roles = new ArrayList<>();
+	private Long id;
 	private String firstName;
 	private String LastName;
 	private String email;
 	private String username;
 	private String password;
+    private Set<Role> roles;
 
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void addRole(Role role) {
-		this.roles.add(role);
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
 	public String getFirstName() {
 		return firstName;
 	}
@@ -67,8 +71,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    public Set<Role> getRoles() {
+        return roles;
+    }
 
-	// private int shippingAddress;
-	// private int billingAdress;
-
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 }

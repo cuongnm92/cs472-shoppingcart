@@ -4,10 +4,13 @@
 <html>
 <head>
 <title>Mercato Shopping Site</title>
-<link href="ui/css/bootstrap.css" rel="stylesheet" type="text/css"
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
+<link href="${contextPath}/resources/css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
-<script src="ui/js/jquery.min.js"></script>
-<link href="ui/css/style.css" rel="stylesheet" type="text/css"
+<script src="${contextPath}/resources/js/jquery.min.js"></script>
+<link href="${contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"
 	media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,10 +25,10 @@
 <link
 	href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
 	rel='stylesheet' type='text/css'>
-<link href="ui/css/memenu.css" rel="stylesheet" type="text/css"
+<link href="${contextPath}/resources/css/memenu.css" rel="stylesheet" type="text/css"
 	media="all" />
-<script type="text/javascript" src="ui/js/memenu.js"></script>
-<script type="text/javascript" src="ui/js/product.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/memenu.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/product.js"></script>
 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
