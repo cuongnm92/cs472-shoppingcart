@@ -1,6 +1,4 @@
-# Project Title
-
-The shopping cart - CS 472
+# The shopping cart - CS 472
 
 ## Getting Started
 
@@ -47,7 +45,9 @@ A step by step to get a development env running
 
 ## Authors
 
-* **Manh Cuong Nguyen** - *cuongnm92.com*
+* **Cuong** - *cuongnm92.com*
+* **Tomas** -
+* **Maan** - 
 
 ## License
 
