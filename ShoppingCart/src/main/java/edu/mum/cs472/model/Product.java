@@ -1,84 +1,95 @@
 package edu.mum.cs472.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "product")
 public class Product {
 
-	private int productId;
-	private String productName;
-	private String productDescription;
+	private Long id;
+	private String name;
+	private String description;
 	private Double price;
 	private int amountAvailable;
 	private String image;
+	private Double rate;
 	
+	@JsonIgnore
+    private Category category;
 	
-	public Product() {
-		super();
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public String getName() {
+		return name;
 	}
 
-	public Product(int productId, String productName, String productDescription, Double price, int amountAvailable, String image) {
-		this.productId = productId;
-		this.productName = productName;
-		this.productDescription = productDescription;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
 		this.price = price;
-		this.amountAvailable = amountAvailable;
-		this.image = image;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof Product) {
-			Product product = (Product) obj;
-			if(product.getProductId() == this.getProductId()) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	
 
-	@Override
-	public int hashCode() {
-		return this.productId;
+	public int getAmountAvailable() {
+		return amountAvailable;
+	}
+
+	public void setAmountAvailable(int amountAvailable) {
+		this.amountAvailable = amountAvailable;
 	}
 
 	public String getImage() {
 		return image;
 	}
-	
+
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	public int getProductId() {
-		return productId;
+
+	public Double getRate() {
+		return rate;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-	public String getProductName() {
-		return productName;
-	}
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-	public String getProductDescription() {
-		return productDescription;
-	}
-	public void setProductDescription(String prodcutDescription) {
-		this.productDescription = prodcutDescription;
-	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-	public int getAmountAvailable() {
-		return amountAvailable;
-	}
-	public void setAmountAvailable(int amountAvailable) {
-		this.amountAvailable = amountAvailable;
+
+	public void setRate(Double rate) {
+		this.rate = rate;
 	}
 	
-	
+	@ManyToOne
+    @JoinColumn(name="category_id")
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 }

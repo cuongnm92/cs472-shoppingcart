@@ -1,49 +1,65 @@
 package edu.mum.cs472.model;
-import java.util.*;
 
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "history")
 public class Order {
-       private int orderId;
-       private List<ProductOrder> productsOrders;
-       private Date orderDate;
-       private String personalAddress;
-       private String shippingAddress;
-       
-       
-       
-       
-	public String getPersonalAddress() {
-		return personalAddress;
+	
+	private Long id;
+	private Long productId;
+	private Long quantity;
+	private Long userId;
+	private Date orderDate;
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+	public Long getProductId() {
+		return productId;
 	}
-	public void setPersonalAddress(String personalAddress) {
-		this.personalAddress = personalAddress;
+
+	public Long getQuantity() {
+		return quantity;
 	}
-	public String getShippingAddress() {
-		return shippingAddress;
+
+	public Long getUserId() {
+		return userId;
 	}
-	public void setShippingAddress(String shippingAddress) {
-		this.shippingAddress = shippingAddress;
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
 	}
-	public int getOrderId() {
-		return orderId;
+
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
 	}
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
-	public List<ProductOrder> getProductsOrder() {
-		return productsOrders;
-	}
-	public void setProductsOrder(List<ProductOrder> productsOrders) {
-		this.productsOrders = productsOrders;
-	}
-       public void addProduct(ProductOrder productOrder) {
-    	   this.productsOrders.add(productOrder);
-       }
+
 	public Date getOrderDate() {
 		return orderDate;
 	}
+
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-       
-       
+
+	
 }

@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 
@@ -15,11 +18,11 @@ import javax.persistence.JoinTable;
 @Table(name = "user")
 public class User {
 	private Long id;
-	private String firstName;
-	private String LastName;
-	private String email;
 	private String username;
+	private String email;
 	private String password;
+	
+	@JsonIgnore
     private Set<Role> roles;
 
     @Id
@@ -31,30 +34,6 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-    
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return LastName;
-	}
-
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public String getUsername() {
 		return username;
@@ -63,7 +42,15 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getPassword() {
 		return password;
 	}

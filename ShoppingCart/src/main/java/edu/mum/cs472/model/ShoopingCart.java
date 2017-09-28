@@ -18,21 +18,4 @@ public class ShoopingCart {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	@Override
-	public int hashCode() {
-		return product.getProductId();
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof ShoopingCart) {
-			ShoopingCart cart = (ShoopingCart) obj;
-			if(cart.getProduct().getProductId() == this.product.getProductId()) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	
-	 
 }
