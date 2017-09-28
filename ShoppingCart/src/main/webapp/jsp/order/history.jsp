@@ -59,8 +59,7 @@
 			<div class="col-lg-3 category">
 				<div class="list-group">
 					<a href="${contextPath}/order/history"
-						class="list-group-item active">Order History</a> <a
-						href="${contextPath}/cart" class="list-group-item">Cart</a> 
+						class="list-group-item active">Order History</a>
 				</div>
 			</div>
 			<div class="col-lg-9">

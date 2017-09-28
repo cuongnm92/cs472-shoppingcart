@@ -60,7 +60,7 @@
 			<div class="col-lg-3 category">
 				<div class="list-group">
 					<a href="${contextPath}/account/summary" class="list-group-item">Summary</a>
-					<a href="${contextPath}/account/info"
+					<a href="${contextPath}/account/manage"
 						class="list-group-item active">Account</a> <a
 						href="${contextPath}/product/add" class="list-group-item">Add
 						new product</a>
